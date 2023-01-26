@@ -11,12 +11,37 @@ the function below should be the only one in this file.
 */
 
 #include "split.h"
-
-/* Add a prototype for a helper function here if you need */
+#include <cstddef>
 
 void split(Node*& in, Node*& odds, Node*& evens)
 {
-  if (head == NULL)
-}
+	// returns if there is nothing stored in "in" list 
+  if (!in) {
+    return;
+  }
+  
+	// head recursion 
+	// passes in address of next element in list as well 
+	// as current positions in evens and odds lists
+  split(in->next, odds, evens);
 
-/* If you needed a helper function, write it here */
+	// CASE #1: current element in list is even 
+  if (in->value % 2 == 0) {
+    // set next item in list equal to current evens address
+		in->next = evens;
+		// set current evens address equal to current item in list 
+    evens = in;
+		// set current item in list pointer equal to NULL
+    in = NULL;
+  }
+	// CASE #2: current element in list is odd 
+  else {
+		// set next item in list equal to current odds address
+    in->next = odds;
+		// set current odds address equal to current item in list 
+    odds = in;
+		// set current item in list pointer equal to NULL
+    in = NULL;
+    
+  }
+}

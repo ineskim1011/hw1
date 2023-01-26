@@ -9,7 +9,7 @@
 #include "split.h"
 
 
-Node * makeList(std::vector<int> const & content)
+Node* makeList(std::vector<int> const & content)
 {
 	Node * head = nullptr;
 
@@ -218,7 +218,7 @@ TEST(Split, AllOddsOneEven)
 
 TEST(Split, TenNumbers)
 {
-	Node* list = makeList({0, 5, 6, 7, 8, 10, 72, 256, 300, 9009, 1111});
+	Node* list = makeList({0, 5, 6, 7, 8, 10, 72, 256, 300, 9009, 1111}); 
 	Node* odds = nullptr;
 	Node* evens = nullptr;
 
